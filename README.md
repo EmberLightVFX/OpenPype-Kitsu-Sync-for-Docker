@@ -13,14 +13,14 @@ docker run -d
 -e OPENPYPE_MONGO=mongodb://username:password@url.com \
 -e KITSU_USERNAME=kitsu-user@url.com \
 -e KITSU_PASSWORD=kitsu-passwrod \
---name openpype_kitsu_sync danell/openpype_kitsu_sync:latest
+--name openpype_kitsu_sync emberlightvfx/openpype_kitsu_sync:latest
 ```
 Or for docker compose:
 ```
 version: '3'
 services:
   openpype-kitsu-sync:
-    image: danell/openpype_kitsu_sync:latest
+    image: emberlightvfx/openpype_kitsu_sync:latest
     environment:
       - OPENPYPE_MONGO=mongodb://username:password@url.com
       - OPENPYPE_VERSION=latest
