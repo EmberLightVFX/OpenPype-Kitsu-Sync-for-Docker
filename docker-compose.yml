@@ -1,0 +1,9 @@
+version: '3'
+services:
+  openpype-kitsu-sync:
+    image: openpype-kitsu-sync:latest
+    environment:
+      - OPENPYPE_MONGO=mongodb://userpassword@url.com
+      - OPENPYPE_VERSION=latest
+      - KITSU_USERNAME=kitsu-user@url.se
+      - KITSU_PASSWORD=kitsu-passwrod
