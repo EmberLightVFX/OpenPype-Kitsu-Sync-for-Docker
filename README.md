@@ -23,10 +23,13 @@ services:
   openpype-kitsu-sync:
     image: emberlightvfx/openpype-kitsu-sync:latest
     environment:
-      - OPENPYPE_MONGO=mongodb://userpassword@url.com
-      - OPENPYPE_VERSION=latest
+      - OPENPYPE_MONGO=mongodb://user:password@url.com
       - KITSU_USERNAME=kitsu-user@url.se
       - KITSU_PASSWORD=kitsu-password
+      - OPENPYPE_VERSION=latest
+      # To use with tags intsead, enter the versionn name under VERSION and the tag name under TAG as seen below
+      #- OPENPYPE_VERSION=3.15.1-nightly.5
+      #- TAG_VERSION=CI/3.15.1-nightly.5
     volumes:
       - 'op-data:/opt/openpype'
 
@@ -40,6 +43,6 @@ One command install with docker-compose.
 ```
 git clone https://github.com/EmberLightVFX/OpenPype-Kitsu-Sync-for-Docker.git
 cd OpenPype-Kitsu-Sync-for-Docker
-nano docker-compose.yaml
+nano docker-compose.yml
 docker-compose up -d
 ```
