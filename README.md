@@ -13,6 +13,7 @@ docker run -d
 -e OPENPYPE_MONGO=mongodb://username:password@url.com \
 -e KITSU_USERNAME=kitsu-user@url.com \
 -e KITSU_PASSWORD=kitsu-passwrod \
+-v op-data:/opt/openpype \
 --name openpype-kitsu-sync emberlightvfxopenpype-kitsu-sync:latest
 ```
 Or for docker compose:
@@ -22,10 +23,16 @@ services:
   openpype-kitsu-sync:
     image: emberlightvfx/openpype-kitsu-sync:latest
     environment:
-      - OPENPYPE_MONGO=mongodb://username:password@url.com
+      - OPENPYPE_MONGO=mongodb://userpassword@url.com
       - OPENPYPE_VERSION=latest
-      - KITSU_USERNAME=kitsu-user@url.com
-      - KITSU_PASSWORD=kitsu-passwrod
+      - KITSU_USERNAME=kitsu-user@url.se
+      - KITSU_PASSWORD=kitsu-password
+    volumes:
+      - 'op-data:/opt/openpype'
+
+volumes:
+    op-data:
+        name: op-data
 ```
 
 ## Full Set up with docker-compose
