@@ -123,15 +123,15 @@ main () {
   fi
 
   echo -e "${BIGreen}>>>${RST} Installed version of OpenPype is ${BIGreen}$OPENPYPE_VERSION${RST} ..."
-  echo -e "${BIGreen}>>>${RST} Running OpenPype Kitsu Sync with debug verbose ..."
+  echo -e "${BIGreen}>>>${RST} Running OpenPype Kitsu Sync ..."
   if [ -f ${TAG_VERSION} ]; then
-    openpype/openpype_console module kitsu sync-service -l $KITSU_USERNAME -p $KITSU_PASSWORD --verbose debug --debug
+    openpype/openpype_console module kitsu sync-service -l $KITSU_USERNAME -p $KITSU_PASSWORD
   else
     # Set the OP version as $OPENPYPE_VERSION but after the last /. Eg cl/3.15.1-nightly.5 should be 3.15.1-nightly.5
     export POETRY_HOME="$openpype_root/.poetry"
     pushd "$openpype_root" > /dev/null || return > /dev/null
     
-    "$POETRY_HOME/bin/poetry" run python3 -u "$openpype_root/start.py" module kitsu sync-service -l $KITSU_USERNAME -p $KITSU_PASSWORD --verbose debug --debug
+    "$POETRY_HOME/bin/poetry" run python3 -u "$openpype_root/start.py" module kitsu sync-service -l $KITSU_USERNAME -p $KITSU_PASSWORD
   fi
 }
 
