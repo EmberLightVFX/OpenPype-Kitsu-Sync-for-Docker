@@ -1,4 +1,5 @@
 #!/bin/bash
+export OPENPYPE_PYTHON_VERSION=3.9.12
 
 # Colors for terminal
 
